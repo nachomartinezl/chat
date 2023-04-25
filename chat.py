@@ -100,8 +100,8 @@ def load_conversation(results):
 
 if __name__ == "__main__":
     convo_length = 30
-    openai.api_key = KEY_OPEN_AI
-    pinecone.init(api_key=KEY_PINECONE, environment="us-west4-gcp")
+    openai.api_key = os.environ.get('KEY_OPEN_AI')
+    pinecone.init(api_key=os.environ.get('KEY_PINECONE'), environment="us-west4-gcp")
     vdb = pinecone.Index("hexbot")
     while True:
         #### get user input, save it, vectorize it, save to pinecone
